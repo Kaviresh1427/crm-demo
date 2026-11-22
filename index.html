@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080808" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="CRM Demo" />
+    <title>Sarvesh CRM - Live Demo</title>
+    <meta name="description" content="Try the Sarvesh CRM business management system for free: customers, leads, quotations, invoices, payments and reports." />
+    <meta name="robots" content="index, follow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root">
+      <!-- Opening screen: shows while the app loads, then the system replaces it -->
+      <div style="position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:radial-gradient(600px 400px at 50% 40%,rgba(224,37,44,.18),transparent 70%),#080808;font-family:'Plus Jakarta Sans','Segoe UI',sans-serif;">
+        <div style="width:132px;height:132px;border-radius:50%;background:#eef0f3;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 1px rgba(255,255,255,.3),0 0 50px rgba(224,37,44,.55);animation:sceGlow 1.6s ease-in-out infinite alternate;">
+          <img src="/sarvesh-logo.png" alt="Sarvesh CRM" style="width:86%;height:86%;object-fit:contain;" />
+        </div>
+        <div style="color:#fff;font-weight:700;font-size:17px;letter-spacing:-.01em;">Sarvesh CRM &middot; Live Demo</div>
+        <div style="color:#8a8a93;font-size:12px;letter-spacing:.12em;text-transform:uppercase;">Loading...</div>
+      </div>
+      <style>@keyframes sceGlow{from{box-shadow:0 0 0 1px rgba(255,255,255,.3),0 0 30px rgba(224,37,44,.35)}to{box-shadow:0 0 0 1px rgba(255,255,255,.4),0 0 70px rgba(255,59,67,.75)}}</style>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

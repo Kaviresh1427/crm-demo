@@ -1,0 +1,82 @@
+/* "Install Sarvesh CRM?" popup */
+.inst-wrap {
+  position: fixed; right: 24px; bottom: 24px; z-index: 90;
+  width: min(380px, calc(100vw - 24px));
+  animation: instIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.inst-wrap.out { animation: instOut 0.3s ease forwards; }
+@keyframes instIn { from { opacity: 0; transform: translateY(40px) scale(0.96); } to { opacity: 1; transform: none; } }
+@keyframes instOut { to { opacity: 0; transform: translateY(30px) scale(0.97); } }
+
+.inst-card {
+  position: relative; padding: 18px; border-radius: 24px;
+  background: rgba(18, 18, 22, 0.97); color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 32, 40, 0.18);
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+}
+
+button.inst-x, button.inst-x:hover {
+  position: absolute; top: 12px; right: 12px; width: 30px; height: 30px; margin: 0; padding: 0;
+  display: flex; align-items: center; justify-content: center; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: none !important; color: #b9b9c3; cursor: pointer; transform: none !important; animation: none !important;
+  background: rgba(255, 255, 255, 0.07) !important;
+}
+button.inst-x:hover { color: #fff; background: rgba(255, 255, 255, 0.12) !important; }
+
+.inst-row { display: flex; align-items: center; gap: 14px; padding-right: 30px; }
+.inst-logo {
+  width: 54px; height: 54px; flex-shrink: 0; border-radius: 16px; overflow: hidden;
+  background: #eef0f3; box-shadow: 0 0 22px rgba(255, 32, 40, 0.45);
+}
+.inst-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.inst-txt { min-width: 0; }
+.inst-txt b { display: block; font-size: 16px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 3px; }
+.inst-txt span { display: block; font-size: 12.5px; line-height: 1.45; color: #a6a6b0; }
+
+.inst-btns { display: flex; gap: 10px; margin-top: 16px; }
+button.inst-later, button.inst-later:hover,
+button.inst-go, button.inst-go:hover {
+  flex: 1; height: 44px; margin: 0; padding: 0 16px; border-radius: 999px; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: inherit; font-size: 14px; font-weight: 600; transform: none !important; animation: none !important;
+}
+button.inst-later, button.inst-later:hover {
+  background: rgba(255, 255, 255, 0.06) !important; border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #fff; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+button.inst-go, button.inst-go:hover {
+  border: none; color: #fff; background: linear-gradient(180deg, #ff3038, #e3141c) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 18px rgba(255, 32, 40, 0.4) !important;
+}
+button.inst-go:active, button.inst-later:active { transform: scale(0.96) !important; }
+
+.inst-ios {
+  margin-top: 14px; padding: 12px 14px; border-radius: 16px; font-size: 13px; line-height: 1.6; color: #d4d4db;
+  background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.inst-ios svg { vertical-align: -3px; color: #ff5a60; }
+
+/* Phone and tablet: sit just above the bottom menu bar */
+@media (max-width: 1024px) {
+  .inst-wrap {
+    left: 12px; right: 12px; margin: 0 auto; width: auto; max-width: 560px;
+    bottom: calc(90px + env(safe-area-inset-bottom));
+  }
+}
+
+/* Light mode */
+[data-theme='light'] .inst-card {
+  background: rgba(255, 255, 255, 0.97); color: #15151a; border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 24px 60px rgba(20, 20, 30, 0.18), 0 0 40px rgba(255, 32, 40, 0.12);
+}
+[data-theme='light'] .inst-txt span, [data-theme='light'] .inst-ios { color: #5d5d68; }
+[data-theme='light'] .inst-ios { background: rgba(0, 0, 0, 0.03); border-color: rgba(0, 0, 0, 0.06); }
+[data-theme='light'] button.inst-x { background: rgba(0, 0, 0, 0.04) !important; border-color: rgba(0, 0, 0, 0.08); color: #5d5d68; }
+[data-theme='light'] button.inst-later { background: #fff !important; border-color: rgba(0, 0, 0, 0.12); color: #15151a; box-shadow: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .inst-wrap, .inst-wrap.out { animation: none; }
+}
