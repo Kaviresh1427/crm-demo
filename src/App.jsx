@@ -38,6 +38,13 @@ const SOON = [
   ['settings', 'Settings'],
 ]
 
+// DEMO: show the "Install app" pop-up only after the visitor presses "Enter Demo",
+// so it does not cover the demo start screen.
+function InstallAfterLogin() {
+  const { session } = useAuth()
+  return session ? <InstallPrompt /> : null
+}
+
 function Protected({ children }) {
   const { session, loading } = useAuth()
   if (loading) return <div className="center-screen">Loading...</div>
@@ -95,7 +102,7 @@ export default function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </BrowserRouter>
-        <InstallPrompt />
+        <InstallAfterLogin />
         <DemoPanel />
       </ConfirmProvider>
     </AuthProvider>
